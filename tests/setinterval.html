@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setinterval延时循环函数</title>
+</head>
+<body>
+<p id="show"></p>
+    
+</body>
+<script>
+        var txt="计数",
+        i=0;
+    function show(){
+        txt=txt+(i++);
+    document.getElementById("show").innerHTML=txt;
+}
+var sh;
+sh=setInterval(show,5000);
+//clearInterval(sh);
+</script>
+</html>

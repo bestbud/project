@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.3.11
+- http://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: 2015-11-15 07:42:58
+- 服务器版本： 5.6.24
+- PHP Version: 5.6.8
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="task" collation="utf8_general_ci" charset="utf8">
+            <pma:table name="device">
+                CREATE TABLE `device` (
+                  `uid` int(11) NOT NULL AUTO_INCREMENT,
+                  `latitude` double NOT NULL COMMENT '设备所在位置经度',
+                  `longitude` double NOT NULL COMMENT '设备所在位置纬度',
+                  `create_time` int(10) NOT NULL COMMENT '创建时间',
+                  `modify_time` int(10) NOT NULL COMMENT '修改时间',
+                  `activation` tinyint(1) NOT NULL DEFAULT '0' COMMENT '?',
+                  KEY `uid` (`uid`),
+                  CONSTRAINT `device_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `t_user` (`uid`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="spectrum">
+                CREATE TABLE `spectrum` (
+                  `uid` int(11) NOT NULL AUTO_INCREMENT,
+                  `device_id` int(16) NOT NULL COMMENT '设备id',
+                  `intensity` double NOT NULL COMMENT '??',
+                  `create_time` int(10) NOT NULL COMMENT '频谱信息获取时间',
+                  `activation` tinyint(1) NOT NULL DEFAULT '0' COMMENT '?',
+                  KEY `uid` (`uid`),
+                  CONSTRAINT `spectrum_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `t_user` (`uid`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="task_pending">
+                CREATE TABLE `task_pending` (
+                  `USER_ID` int(10) unsigned NOT NULL,
+                  `TOKEN` varchar(50) NOT NULL,
+                  `TOKEN_EXPTIME` int(10) NOT NULL,
+                  `CREATED_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                  KEY `USER_ID` (`USER_ID`)
+                ) ENGINE=MyISAM DEFAULT CHARSET=gb2312;
+            </pma:table>
+            <pma:table name="task_user">
+                CREATE TABLE `task_user` (
+                  `UID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+                  `USERNAME` varchar(20) NOT NULL,
+                  `PASSWORD` char(40) NOT NULL,
+                  `EMAIL` varchar(100) NOT NULL,
+                  `IS_ACTIVE` tinyint(1) DEFAULT '0',
+                  PRIMARY KEY (`UID`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=gb2312;
+            </pma:table>
+            <pma:table name="t_user">
+                CREATE TABLE `t_user` (
+                  `uid` int(11) NOT NULL AUTO_INCREMENT,
+                  `username` varchar(30) NOT NULL COMMENT '用户名',
+                  `password` varchar(100) NOT NULL COMMENT '密码',
+                  `email` varchar(30) NOT NULL COMMENT '邮箱',
+                  `token` varchar(50) NOT NULL COMMENT '帐号激活码',
+                  `token_exptime` int(10) NOT NULL COMMENT '激活码有效期',
+                  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '状态,0-未激活,1-已激活',
+                  `regtime` int(10) NOT NULL COMMENT '注册时间',
+                  PRIMARY KEY (`uid`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="t_user_info">
+                CREATE TABLE `t_user_info` (
+                  `uid` int(11) NOT NULL,
+                  `name` varchar(30) DEFAULT NULL COMMENT '用户姓名',
+                  `sex` tinyint(1) NOT NULL DEFAULT '0' COMMENT '性别 0男1女',
+                  `birthday` date DEFAULT NULL COMMENT '生日',
+                  `location` varchar(100) DEFAULT '省份/地级市/市、县级市、县' COMMENT '所在地',
+                  `email` varchar(30) DEFAULT NULL COMMENT '邮箱',
+                  `mobile` varchar(13) DEFAULT NULL COMMENT '手机号',
+                  `qq` varchar(13) DEFAULT NULL COMMENT 'qq号码',
+                  PRIMARY KEY (`uid`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'task'
+    -->
+    <database name="task">
+        <!-- 表 device -->
+        <!-- 表 spectrum -->
+        <!-- 表 task_pending -->
+        <table name="task_pending">
+            <column name="USER_ID">0</column>
+            <column name="TOKEN">df0e3dc46e13d3d7fc5d3ac55dd6a70d</column>
+            <column name="TOKEN_EXPTIME">1444553068</column>
+            <column name="CREATED_DATE">0000-00-00 00:00:00</column>
+        </table>
+        <!-- 表 task_user -->
+        <table name="task_user">
+            <column name="UID">1</column>
+            <column name="USERNAME">user1</column>
+            <column name="PASSWORD">81dc9bdb52d04dc20036dbd8313ed055</column>
+            <column name="EMAIL">wordm1@126.com</column>
+            <column name="IS_ACTIVE">0</column>
+        </table>
+        <table name="task_user">
+            <column name="UID">14</column>
+            <column name="USERNAME">task</column>
+            <column name="PASSWORD">81dc9bdb52d04dc20036dbd8313ed055</column>
+            <column name="EMAIL">oktask@126.com</column>
+            <column name="IS_ACTIVE">0</column>
+        </table>
+        <table name="task_user">
+            <column name="UID">16</column>
+            <column name="USERNAME">user8</column>
+            <column name="PASSWORD">81dc9bdb52d04dc20036dbd8313ed055</column>
+            <column name="EMAIL">wordm8@126.com</column>
+            <column name="IS_ACTIVE">0</column>
+        </table>
+        <table name="task_user">
+            <column name="UID">17</column>
+            <column name="USERNAME">user9</column>
+            <column name="PASSWORD">7bccfde7714a1ebadf06c5f4cea752c1</column>
+            <column name="EMAIL">wordm9@126.com</column>
+            <column name="IS_ACTIVE">0</column>
+        </table>
+        <table name="task_user">
+            <column name="UID">25</column>
+            <column name="USERNAME">user2</column>
+            <column name="PASSWORD">81dc9bdb52d04dc20036dbd8313ed055</column>
+            <column name="EMAIL">wordm2@126.com</column>
+            <column name="IS_ACTIVE">0</column>
+        </table>
+        <!-- 表 t_user -->
+        <table name="t_user">
+            <column name="uid">33</column>
+            <column name="username">user2</column>
+            <column name="password">173egPg7ec2g4IIsl79y7VFddbpbyfHqwQzodt7BNzm9</column>
+            <column name="email">wordm2@126.com</column>
+            <column name="token">1744e4ce7bbde30e2ede061bba78e53b</column>
+            <column name="token_exptime">1445564453</column>
+            <column name="status">1</column>
+            <column name="regtime">1445478053</column>
+        </table>
+        <table name="t_user">
+            <column name="uid">34</column>
+            <column name="username">user3</column>
+            <column name="password">783dhDLbeJhTb2KlwRMoCI4bXmIUWbqtKMSDNkZrZAmBACI7fw</column>
+            <column name="email">wordm3@126.com</column>
+            <column name="token">8e9ef251dcc52210cbeab63e49de7bde</column>
+            <column name="token_exptime">1445568376</column>
+            <column name="status">1</column>
+            <column name="regtime">1445478830</column>
+        </table>
+        <table name="t_user">
+            <column name="uid">35</column>
+            <column name="username">453815603@qq.com</column>
+            <column name="password">bad4dyObTjLtd3PxuQT5XBOSH1CYBRaS4hJB6RkbMIh4</column>
+            <column name="email">453815603@qq.com</column>
+            <column name="token">5412b5488c22ef2e2fd47bb25fe08ded</column>
+            <column name="token_exptime">1445584458</column>
+            <column name="status">0</column>
+            <column name="regtime">1445497954</column>
+        </table>
+        <table name="t_user">
+            <column name="uid">36</column>
+            <column name="username">user1</column>
+            <column name="password">6f0fjfi4UeLpF35tvGhmbIYJCTXYvZ8KUy0pbw0cLxRP</column>
+            <column name="email">wordm1@126.com</column>
+            <column name="token">ae986d2212daa3bc17fb18e351ad0ca8</column>
+            <column name="token_exptime">1447651461</column>
+            <column name="status">1</column>
+            <column name="regtime">1445498869</column>
+        </table>
+        <table name="t_user">
+            <column name="uid">37</column>
+            <column name="username">task</column>
+            <column name="password">c80d2NV/QtIV1ZevoS82Vn2AEkF8QvpCDNP+FrI5qKX0</column>
+            <column name="email">oktask@126.com</column>
+            <column name="token">5349a9611672a90e7db33db61a902a20</column>
+            <column name="token_exptime">1445667027</column>
+            <column name="status">1</column>
+            <column name="regtime">1445509930</column>
+        </table>
+        <table name="t_user">
+            <column name="uid">38</column>
+            <column name="username">user4</column>
+            <column name="password">5857cJDF2Ik3Kn+rr8b5idXIyFLCPV4hVgEibkB8Sjtx</column>
+            <column name="email">wordm4@126.com</column>
+            <column name="token">c6a7097b33bbbaa3e4e60d79ebf4c5cb</column>
+            <column name="token_exptime">1445598889</column>
+            <column name="status">1</column>
+            <column name="regtime">1445511375</column>
+        </table>
+        <table name="t_user">
+            <column name="uid">39</column>
+            <column name="username">小穗</column>
+            <column name="password">acb7hhztnz3W2HoD1rcgi3+rgodynjAObbnpKzPgceZB</column>
+            <column name="email">1114956625@qq.com</column>
+            <column name="token">80bc228330f267bfff6727f4cfb24679</column>
+            <column name="token_exptime">1447651537</column>
+            <column name="status">1</column>
+            <column name="regtime">1447563040</column>
+        </table>
+        <!-- 表 t_user_info -->
+        <table name="t_user_info">
+            <column name="uid">33</column>
+            <column name="name">宋二毛</column>
+            <column name="sex">0</column>
+            <column name="birthday">2015-01-26</column>
+            <column name="location">北京/北京/北京市/二毛家</column>
+            <column name="email">wordm2@126.com</column>
+            <column name="mobile">15062286157</column>
+            <column name="qq">123415648</column>
+        </table>
+        <table name="t_user_info">
+            <column name="uid">34</column>
+            <column name="name">宋三毛</column>
+            <column name="sex">0</column>
+            <column name="birthday">2014-11-05</column>
+            <column name="location">河北/保定/安国市/三毛家</column>
+            <column name="email">wordm3@126.com</column>
+            <column name="mobile">18744021856</column>
+            <column name="qq">12345648</column>
+        </table>
+        <table name="t_user_info">
+            <column name="uid">35</column>
+            <column name="name">NULL</column>
+            <column name="sex">0</column>
+            <column name="birthday">NULL</column>
+            <column name="location">省份/地级市/市、县级市、县</column>
+            <column name="email">453815603@qq.com</column>
+            <column name="mobile">NULL</column>
+            <column name="qq">NULL</column>
+        </table>
+        <table name="t_user_info">
+            <column name="uid">36</column>
+            <column name="name">宋三毛</column>
+            <column name="sex">1</column>
+            <column name="birthday">2015-07-14</column>
+            <column name="location">辽宁/鞍山/鞍山市/交付的卡了</column>
+            <column name="email">wordm1@126.com</column>
+            <column name="mobile">18744021856</column>
+            <column name="qq">12312</column>
+        </table>
+        <table name="t_user_info">
+            <column name="uid">37</column>
+            <column name="name">宋OK</column>
+            <column name="sex">0</column>
+            <column name="birthday">2018-10-29</column>
+            <column name="location">福建/福州/长乐市/OK家</column>
+            <column name="email">oktask@12</column>
+            <column name="mobile">18744021856</column>
+            <column name="qq">1234564</column>
+        </table>
+        <table name="t_user_info">
+            <column name="uid">38</column>
+            <column name="name">四毛</column>
+            <column name="sex">0</column>
+            <column name="birthday">0123-12-03</column>
+            <column name="location">福建/福州/长乐市/四毛家</column>
+            <column name="email">wordm4@126.com</column>
+            <column name="mobile">145229565</column>
+            <column name="qq">12312645</column>
+        </table>
+        <table name="t_user_info">
+            <column name="uid">39</column>
+            <column name="name">NULL</column>
+            <column name="sex">0</column>
+            <column name="birthday">NULL</column>
+            <column name="location">省份/地级市/市、县级市、县</column>
+            <column name="email">1114956625@qq.com</column>
+            <column name="mobile">NULL</column>
+            <column name="qq">NULL</column>
+        </table>
+    </database>
+</pma_xml_export>

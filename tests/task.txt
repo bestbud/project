@@ -1,0 +1,75 @@
+===数据库 task
+
+== 表的结构 device
+
+|------
+|字段|类型|空|默认
+|------
+|uid|int(11)|否|
+|latitude|double|否|
+|longitude|double|否|
+|create_time|timestamp|否|CURRENT_TIMESTAMP
+|modify_time|timestamp|否|0000-00-00 00:00:00
+|activation|tinyint(1)|否|0
+== 转存表中的数据 device
+
+|41|31.875587|118.827801|2015-11-16 19:07:20|0000-00-00 00:00:00|0
+== 表的结构 spectrum
+
+|------
+|字段|类型|空|默认
+|------
+|uid|int(11)|否|
+|device_id|int(16)|否|
+|intensity|double|否|
+|create_time|int(10)|否|
+|activation|tinyint(1)|否|0
+== 转存表中的数据 spectrum
+
+== 表的结构 t_user
+
+|------
+|字段|类型|空|默认
+|------
+|//**uid**//|int(11)|否|
+|username|varchar(30)|否|
+|password|varchar(100)|否|
+|email|varchar(30)|否|
+|token|varchar(50)|否|
+|token_exptime|int(10)|否|
+|status|tinyint(1)|否|0
+|regtime|int(10)|否|
+== 转存表中的数据 t_user
+
+|33|user2|173egPg7ec2g4IIsl79y7VFddbpbyfHqwQzodt7BNzm9|wordm2@126.com|1744e4ce7bbde30e2ede061bba78e53b|1445564453|1|1445478053
+|34|user3|783dhDLbeJhTb2KlwRMoCI4bXmIUWbqtKMSDNkZrZAmBACI7fw|wordm3@126.com|8e9ef251dcc52210cbeab63e49de7bde|1445568376|1|1445478830
+|35|453815603@qq.com|bad4dyObTjLtd3PxuQT5XBOSH1CYBRaS4hJB6RkbMIh4|453815603@qq.com|5412b5488c22ef2e2fd47bb25fe08ded|1445584458|0|1445497954
+|36|user1|6f0fjfi4UeLpF35tvGhmbIYJCTXYvZ8KUy0pbw0cLxRP|wordm1@126.com|ae986d2212daa3bc17fb18e351ad0ca8|1447651461|1|1445498869
+|37|task|c80d2NV/QtIV1ZevoS82Vn2AEkF8QvpCDNP+FrI5qKX0|oktask@126.com|5349a9611672a90e7db33db61a902a20|1445667027|1|1445509930
+|38|user4|5857cJDF2Ik3Kn+rr8b5idXIyFLCPV4hVgEibkB8Sjtx|wordm4@126.com|c6a7097b33bbbaa3e4e60d79ebf4c5cb|1445598889|1|1445511375
+|40|user5|60fdWWf5MS9a9GEKH4IB4Y1mR8FJqFmgVwEUVihtAmNc|wordm5@126.com|76d2a950c28c216153ac4689e2726348|1447662153|0|1447575753
+|41|xiaosui|3b09ETekO2xIfKJZL860G+c4N6ENl4AKtUW46JlkEStv|1114956625@qq.com|28bd898c27538e371f4356694a936fa2|1447743383|0|1447656983
+== 表的结构 t_user_info
+
+|------
+|字段|类型|空|默认
+|------
+|//**uid**//|int(11)|否|
+|name|varchar(30)|是|NULL
+|sex|tinyint(1)|否|0
+|birthday|date|是|NULL
+|location|varchar(100)|是|省份/地级市/市、县级市、县
+|email|varchar(30)|是|NULL
+|mobile|varchar(13)|是|NULL
+|qq|varchar(13)|是|NULL
+== 转存表中的数据 t_user_info
+
+|33|宋二毛|0|2015-01-26|北京/北京/北京市/二毛家|wordm2@126.com|15062286157|123415648
+|34|宋三毛|0|2014-11-05|河北/保定/安国市/三毛家|wordm3@126.com|18744021856|12345648
+|35|NULL|0|NULL|省份/地级市/市、县级市、县|453815603@qq.com|NULL|NULL
+|36|宋三毛|1|2015-07-14|辽宁/鞍山/鞍山市/交付的卡了|wordm1@126.com|18744021856|12312
+|37|宋OK|0|2018-10-29|福建/福州/长乐市/OK家|oktask@12|18744021856|1234564
+|38|四毛|0|0123-12-03|福建/福州/长乐市/四毛家|wordm4@126.com|145229565|12312645
+|39|NULL|0|NULL|省份/地级市/市、县级市、县|1114956625@qq.com|NULL|NULL
+|40| |0|0000-00-00|省份/地级市/市、县级市、县/|wordm5@126.com| | 
+|41|NULL|0|NULL|省份/地级市/市、县级市、县|1114956625@qq.com|NULL|NULL

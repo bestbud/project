@@ -1,0 +1,12 @@
+
+blank系列空白网页可以直接用，填充内容主显示区即可啦
+
+include文件夹下的东东：
+    public目录下的文件引用
+
+				丑丑的待改进的页面顶栏
+			<?php include("include/header.php") ?>
+				个人主页左侧边栏的简单菜单
+			<?php include("include/menu.php") ?> 
+				页脚
+			<?php include("include/footer.php") ?> 
